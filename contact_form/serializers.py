@@ -11,4 +11,4 @@ class CreateContactFormSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ContactForm
-        fields = (name, email, phoneNumber, message)
+        fields = ("name", "email", "phoneNumber", "message")
