@@ -12,3 +12,6 @@ class CreateContactFormSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactForm
         fields = ("name", "email", "phoneNumber", "message")
+
+    def create(self, validated_data):
+        return ContactForm.objects.create(**validated_data)
