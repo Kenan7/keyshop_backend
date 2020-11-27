@@ -7,17 +7,8 @@ environ.Env.read_env()  # reading .env file
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = root()
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:4200", "http://localhost:4201"]
 
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
-
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 SECRET_KEY = env.str("SECRET_KEY")
