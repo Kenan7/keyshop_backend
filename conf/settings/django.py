@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
@@ -120,3 +121,4 @@ MEDIA_ROOT = public_root("media")
 MEDIA_URL = env.str("MEDIA_URL", default="/public/media/")
 STATIC_ROOT = public_root("static")
 STATIC_URL = env.str("STATIC_URL", default="/public/static/")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
