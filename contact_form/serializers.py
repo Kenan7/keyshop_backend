@@ -4,6 +4,11 @@ from contact_form.models import ContactForm
 
 
 class CreateContactFormSerializer(serializers.ModelSerializer):
+    name = serializers.CharField()
+    email = serializers.EmailField()
+    phoneNumber = serializers.CharField()
+    message = serializers.CharField()
+
     class Meta:
         model = ContactForm
         fields = "__all__"
