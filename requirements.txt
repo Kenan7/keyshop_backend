@@ -5,3 +5,4 @@ djoser
 djangorestframework_simplejwt
 django-environ
 drf-yasg
+black
