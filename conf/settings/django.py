@@ -27,6 +27,15 @@ GRAPH_MODELS = {
     "exclude_models": "BasePasscode, AbstractBaseUser, PermissionsMixin, Group, Permission, Session, ContentType, AbstractBaseSession, LogEntry",
 }
 
+DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+# STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+GS_PROJECT_ID = "keyshop"
+GS_BUCKET_NAME = GS_PROJECT_ID
+GS_MEDIA_BUCKET_NAME = "keyshop/media"
+# GS_STATIC_BUCKET_NAME = "keyshop/static"
+# STATIC_URL = "https://storage.googleapis.com/{}/".format(GS_STATIC_BUCKET_NAME)
+MEDIA_URL = "https://storage.googleapis.com/{}/".format(GS_MEDIA_BUCKET_NAME)
+
 
 # Application definition
 
@@ -108,8 +117,8 @@ USE_L10N = True
 USE_TZ = True
 
 public_root = root.path("public/")
-MEDIA_ROOT = public_root("media")
-MEDIA_URL = env.str("MEDIA_URL", default="/public/media/")
+# MEDIA_ROOT = public_root("media")
+# MEDIA_URL = env.str("MEDIA_URL", default="/public/media/")
 STATIC_ROOT = public_root("static")
 STATIC_URL = env.str("STATIC_URL", default="/public/static/")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
