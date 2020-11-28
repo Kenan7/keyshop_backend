@@ -10,5 +10,8 @@ class ContactForm(models.Model):
     def save(self, *args, **kwargs):
         return super(ContactForm, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return f"{self.email_address} - {self.message}"
+
     class Meta:
         verbose_name_plural = "Contact Forms"
