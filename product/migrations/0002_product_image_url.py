@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product', '0001_initial'),
+        ("product", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='image_url',
-            field=models.CharField(default='http://', max_length=200),
+            model_name="product",
+            name="image_url",
+            field=models.CharField(default="http://", max_length=200),
             preserve_default=False,
         ),
     ]

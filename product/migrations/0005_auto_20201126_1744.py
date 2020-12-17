@@ -6,31 +6,47 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product', '0004_auto_20201126_1716'),
+        ("product", "0004_auto_20201126_1716"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=16)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=16)),
             ],
         ),
         migrations.CreateModel(
-            name='Compability',
+            name="Compability",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=16)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=16)),
             ],
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='compability',
+            model_name="product",
+            name="compability",
         ),
         migrations.AddField(
-            model_name='product',
-            name='compability',
-            field=models.ManyToManyField(to='product.Compability'),
+            model_name="product",
+            name="compability",
+            field=models.ManyToManyField(to="product.Compability"),
         ),
     ]

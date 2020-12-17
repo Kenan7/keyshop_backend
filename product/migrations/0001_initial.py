@@ -7,21 +7,40 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('item_name', models.CharField(max_length=30)),
-                ('stock_amount', models.IntegerField(default=1)),
-                ('price', models.FloatField()),
-                ('discount_price', models.FloatField(blank=True, null=True)),
-                ('compability', models.CharField(choices=[('Windows', 'Windows'), ('MacOS', 'MacOS'), ('iOS', 'iOS'), ('Android', 'Android'), ('Linux', 'Linux')], max_length=10)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("item_name", models.CharField(max_length=30)),
+                ("stock_amount", models.IntegerField(default=1)),
+                ("price", models.FloatField()),
+                ("discount_price", models.FloatField(blank=True, null=True)),
+                (
+                    "compability",
+                    models.CharField(
+                        choices=[
+                            ("Windows", "Windows"),
+                            ("MacOS", "MacOS"),
+                            ("iOS", "iOS"),
+                            ("Android", "Android"),
+                            ("Linux", "Linux"),
+                        ],
+                        max_length=10,
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
             ],
         ),
     ]

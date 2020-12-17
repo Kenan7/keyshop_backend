@@ -6,22 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product', '0003_auto_20201125_1745'),
+        ("product", "0003_auto_20201125_1745"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='product',
-            options={'ordering': ['-id']},
+            name="product",
+            options={"ordering": ["-id"]},
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='image_url',
+            model_name="product",
+            name="image_url",
         ),
         migrations.AddField(
-            model_name='product',
-            name='image',
-            field=models.ImageField(default='http://', upload_to='products/'),
+            model_name="product",
+            name="image",
+            field=models.ImageField(default="http://", upload_to="products/"),
             preserve_default=False,
         ),
     ]

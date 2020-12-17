@@ -10,7 +10,9 @@ class Product(models.Model):
     discount_price = models.FloatField(null=True, blank=True)
     image = models.ImageField(upload_to="products/")
 
-    category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(
+        "Category", on_delete=models.SET_NULL, null=True
+    )
     compability = models.ManyToManyField("Compability")
 
     created_at = models.DateTimeField(auto_now_add=True)
