@@ -3,6 +3,7 @@ from rest_framework import routers
 
 from product import views
 
-router = routers.DefaultRouter()
-
-urlpatterns = []
+urlpatterns = [
+    path("category", views.CategoryListView.as_view()),
+    path("product", views.ProductsListView.as_view()),
+]

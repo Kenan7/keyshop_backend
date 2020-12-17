@@ -14,3 +14,6 @@ public/
 # coverage result
 .coverage
 /coverage/
+
+
+*.Identifier
