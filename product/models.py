@@ -38,8 +38,22 @@ class Compability(models.Model):
         verbose_name_plural = "Compabilities"
 
 
+from django.db.models import Manager
+
+
+class CategoryManager(Manager):
+    def get_all(self):
+        return (
+            super(CategoryManager, self)
+            .get_queryset()
+            .prefetch_related("product_set")
+        )
+
+
 class Category(models.Model):
     name = models.CharField(max_length=16)
+
+    objects = CategoryManager()
 
     def __str__(self):
         return self.name

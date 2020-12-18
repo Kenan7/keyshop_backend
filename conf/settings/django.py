@@ -28,12 +28,10 @@ GRAPH_MODELS = {
 }
 
 DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
-# STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 GS_PROJECT_ID = "keyshop"
 GS_BUCKET_NAME = GS_PROJECT_ID
 GS_MEDIA_BUCKET_NAME = "keyshop/media"
-# GS_STATIC_BUCKET_NAME = "keyshop/static"
-# STATIC_URL = "https://storage.googleapis.com/{}/".format(GS_STATIC_BUCKET_NAME)
+
 MEDIA_URL = "https://storage.googleapis.com/{}/".format(GS_MEDIA_BUCKET_NAME)
 
 
@@ -54,6 +52,8 @@ INSTALLED_APPS = [
     "drf_yasg",
     "corsheaders",
     "django_extensions",
+    "django_filters",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -66,6 +66,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "conf.urls"
@@ -90,20 +91,20 @@ WSGI_APPLICATION = "conf.wsgi.application"
 
 AUTH_USER_MODEL = "core.CustomUser"
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
-]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+#     },
+#     {
+#         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+#     },
+#     {
+#         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+#     },
+#     {
+#         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+#     },
+# ]
 
 
 LANGUAGE_CODE = "en-us"
@@ -117,8 +118,12 @@ USE_L10N = True
 USE_TZ = True
 
 public_root = root.path("public/")
-# MEDIA_ROOT = public_root("media")
-# MEDIA_URL = env.str("MEDIA_URL", default="/public/media/")
+
 STATIC_ROOT = public_root("static")
 STATIC_URL = env.str("STATIC_URL", default="/public/static/")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+# GS_STATIC_BUCKET_NAME = "keyshop/static"
+# STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+# STATIC_URL = "https://storage.googleapis.com/{}/".format(GS_STATIC_BUCKET_NAME)
