@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "core.apps.CoreConfig",
     "product.apps.ProductConfig",
     "contact_form.apps.ContactFormConfig",
+    "order.apps.OrderConfig",
     "rest_framework",
     "djoser",
     "drf_yasg",

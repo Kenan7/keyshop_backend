@@ -1,9 +1,15 @@
 from django.db import models
+from django.db.models import Manager
 
 
-# Create your models here.
+class ProductManager(Manager):
+    def get_active(self):
+        return super(ProductManager, self).get_queryset().filter(active=True)
+
+
 class Product(models.Model):
     item_name = models.CharField(max_length=30)
+    stock_quantity = models.IntegerField(default=1)
     quantity = models.IntegerField(default=1)
     description = models.CharField(max_length=1000)
     price = models.FloatField()
@@ -17,6 +23,10 @@ class Product(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    active = models.BooleanField()
+
+    objects = ProductManager()
 
     class Meta:
         ordering = ["-id"]
@@ -36,9 +46,6 @@ class Compability(models.Model):
 
     class Meta:
         verbose_name_plural = "Compabilities"
-
-
-from django.db.models import Manager
 
 
 class CategoryManager(Manager):

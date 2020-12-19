@@ -7,7 +7,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         ## This data variable will contain refresh and access tokens
         data = super().validate(attrs)
         ## You can add more User model's attributes like username,email etc. in the data dictionary like this.
-        data["name"] = f"{self.user.first_name} {self.user.last_name}"
+        # data["name"] = f"{self.user.first_name} {self.user.last_name}"
         return data
 
 
