@@ -9,7 +9,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/manage.py",
             "env": {
-                "DATABASE_URL": "postgres://postgres:kkk@localhost:5433/ecom"
+                "DATABASE_URL": "postgres://postgres:kkk@localhost:5433/ecom_test"
             },
             "args": [
                 "runserver"

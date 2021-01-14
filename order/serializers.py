@@ -8,7 +8,10 @@ from order.models import Order, ProductList
 class ProductListSerializer(ModelSerializer):
     class Meta:
         model = ProductList
-        fields = "__all__"
+        fields = [
+            "quantity",
+            "product",
+        ]
 
 
 class OrderSerializer(ModelSerializer):
@@ -16,9 +19,16 @@ class OrderSerializer(ModelSerializer):
 
     def create(self, validated_data):
         items = validated_data.pop("product_list")
-        for x in items:
-            ProductList.objects.create(product=x.product, quantity=x.quantity)
+        order = Order.objects.create(**validated_data)
+        for item in items:
+            ProductList.objects.create(order=order, **item)
+
+        return order
 
     class Meta:
         model = Order
-        fields = "__all__"
+        fields = [
+            "user",
+            "address",
+            "product_list",
+        ]
