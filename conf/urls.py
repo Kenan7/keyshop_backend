@@ -27,10 +27,11 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(router.urls)),
-    path("auth/jwt/create/", CustomTokenObtainPairView.as_view()),
+    # path("auth/jwt/create/", CustomTokenObtainPairView.as_view()),
     path("auth/", include("djoser.urls")),
     path("auth/", include("djoser.urls.jwt")),
     path("", include("product.urls")),
+    path("", include("order.urls")),
     path("contact/", include("contact_form.urls")),
     path(
         "swagger/",
