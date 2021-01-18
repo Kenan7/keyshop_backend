@@ -30,9 +30,9 @@ GRAPH_MODELS = {
 DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 GS_PROJECT_ID = "keyshop"
 GS_BUCKET_NAME = GS_PROJECT_ID
-GS_MEDIA_BUCKET_NAME = "keyshop/media"
+GS_MEDIA_BUCKET_NAME = f"{GS_BUCKET_NAME}/media"
 
-MEDIA_URL = "https://storage.googleapis.com/{}/".format(GS_MEDIA_BUCKET_NAME)
+MEDIA_URL = f"https://storage.googleapis.com/{GS_MEDIA_BUCKET_NAME}/"
 
 
 # Application definition
